@@ -17,19 +17,54 @@ namespace COMP123_MidTermExam
      */
     public abstract class LottoGame
     {
-         List<int> _elementList = new List<int>();
-        private int _elementNumber;
-        List<int> _numberList = new List<int>();
-        private Random _random = new Random();
 
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // CREATE private fields here --------------------------------------------
-
+        private List<int> _elementList;
+        private int _elementNumber;
+        private List<int> _numberList;
+        private Random _random;
+        private int _setSize;
         // PUBLIC PROPERTIES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // CREATE public properties here -----------------------------------------
+        public int ElementList
+        {
+            get;
+        }
 
+        public int ElementNumber
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public int NumberList
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public int random
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public int SetSize
+        {
+            get => default;
+            set
+            {
+            }
+        }
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /**
@@ -59,11 +94,24 @@ namespace COMP123_MidTermExam
         }
 
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+    
+        public void PickElements()
+        {
+            throw new System.NotImplementedException();
+        }
         // CREATE the private _initialize method here -----------------------------
+        private void _initialize()
+        {
+            _numberList = new List<int>();
+            _elementList = new List<int>();
+            _random = new Random();
 
+        }
         // CREATE the private _build method here -----------------------------------
-
+        private void _build()
+        {
+            throw new System.NotImplementedException();
+        }
         // OVERRIDEN METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /**
@@ -90,6 +138,7 @@ namespace COMP123_MidTermExam
 
             return lottoNumberString;
         }
+
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

@@ -29,40 +29,36 @@ namespace COMP123_MidTermExam
         // PUBLIC PROPERTIES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // CREATE public properties here -----------------------------------------
-        public int ElementList
+        public List<int> ElementList
         {
-            get;
+            get=> _elementList;
         }
 
         public int ElementNumber
         {
-            get => default;
+            get => _elementNumber;
             set
             {
+                _elementNumber = value;
             }
         }
 
-        public int NumberList
+        public List<int> NumberList
         {
-            get => default;
-            set
-            {
-            }
+            get => _numberList;
         }
 
-        public int random
+        public Random random
         {
-            get => default;
-            set
-            {
-            }
+            get => _random;
         }
 
         public int SetSize
         {
-            get => default;
+            get => _setSize;
             set
             {
+                _setSize = value;
             }
         }
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -95,10 +91,7 @@ namespace COMP123_MidTermExam
 
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
-        public void PickElements()
-        {
-            throw new System.NotImplementedException();
-        }
+
         // CREATE the private _initialize method here -----------------------------
         private void _initialize()
         {
@@ -110,7 +103,20 @@ namespace COMP123_MidTermExam
         // CREATE the private _build method here -----------------------------------
         private void _build()
         {
-            throw new System.NotImplementedException();
+            int Numbers;
+          
+            Numbers = _random.Next();
+            do
+            {
+                Numbers = SetSize;
+                foreach (int num in NumberList)
+                {
+                    NumberList.Add(Numbers);
+                }
+            }
+            while (Numbers != 0);
+
+
         }
         // OVERRIDEN METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -143,5 +149,23 @@ namespace COMP123_MidTermExam
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // CREATE the public PickElements method here ----------------------------
+        public void PickElements()
+        {
+            if (ElementList.Count > 0) 
+            {
+                ElementList.Clear();
+                NumberList.Clear();
+                _build();
+            }
+            for (int i=0; i<ElementNumber; i++)
+            {
+                int SelectNumbers = _random.Next(NumberList.Count);
+                NumberList.RemoveAt(SelectNumbers);
+                ElementList.Add(SelectNumbers);
+            }
+            ElementList.Sort();
+
+        }
+
     }
 }
